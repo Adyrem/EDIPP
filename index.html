@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EDIPP</title>
+</head>
+<body>
+
+    <input type="file" id="fileInput" accept="image/*">
+    <button id="editButton">Edit Image</button>
+
+    <br><br>
+
+    <img id="originalImage" width="300" height="300">
+    <img id="editedImage" width="300" height="300">
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const originalImage = document.getElementById('originalImage');
+        const editedImage = document.getElementById('editedImage');
+        const editButton = document.getElementById('editButton');
+
+        let loadedImage = new Image();
+
+        fileInput.addEventListener('change', function() {
+            const file = fileInput.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                loadedImage.src = e.target.result;
+                originalImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        editButton.addEventListener('click', function() {
+            if (!loadedImage.src) return;
+
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            const newWidth = loadedImage.width / 10;
+            const newHeight = loadedImage.height / 10;
+
+            canvas.width = newWidth;
+            canvas.height = newHeight;
+
+            ctx.drawImage(loadedImage, 0, 0, newWidth, newHeight);
+
+            editedImage.src = canvas.toDataURL();
+        });
+    </script>
+
+</body>
+</html>
