@@ -3,12 +3,14 @@
 !package.json
 !package-lock.json
 
-# OpenTofu / Terraform State & Logs
-.terraform/
-.tofu/
+# OpenTofu / Terraform
+**/.terraform/*
+**/.terraform/
+**/.tofu/
 *.tfstate
-*.tfstate.backup
+*.tfstate.*
 .terraform.lock.hcl
+infrastructure/.terraform.lock.hcl
 *.zip
 
 # Python / Functions Framework
