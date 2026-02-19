@@ -1,0 +1,23 @@
+# Google Cloud Credentials
+*.json
+!package.json
+!package-lock.json
+
+# OpenTofu / Terraform State & Logs
+.terraform/
+.tofu/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+*.zip
+
+# Python / Functions Framework
+__pycache__/
+*.pyc
+venv/
+.env
+
+# OS / IDE
+.vscode/
+.idea/
+.DS_Store
