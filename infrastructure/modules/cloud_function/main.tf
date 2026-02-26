@@ -37,9 +37,16 @@ resource "google_cloudfunctions2_function" "function" {
     }
   }
 
-  service_config {
-    ingress_settings = "ALLOW_ALL"
-  }
+service_config {
+  min_instance_count = 0
+  max_instance_count = 2
+  timeout_seconds = 15
+
+  available_memory = "256M"
+  available_cpu    = "0.08"
+
+  ingress_settings = "ALLOW_ALL"
+}
 }
 
 resource "google_cloud_run_v2_service_iam_member" "public" {
