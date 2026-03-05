@@ -1,3 +1,18 @@
+resource "google_project_service" "required_apis" {
+  for_each = toset([
+    "cloudfunctions.googleapis.com",
+    "run.googleapis.com",
+    "cloudbuild.googleapis.com",
+    "artifactregistry.googleapis.com",
+    "storage.googleapis.com"
+  ])
+
+  project = var.project_id
+  service = each.key
+
+  disable_on_destroy = false
+}
+
 module "hello_world" {
   source      = "./modules/cloud_function"
   project_id  = var.project_id
@@ -6,6 +21,8 @@ module "hello_world" {
   runtime     = "python312"
   entry_point = "hello_world"
   source_dir  = "${path.module}/../src/hello_world"
+
+  depends_on = [google_project_service.required_apis]
 }
 
 module "image_downscale" {
@@ -16,6 +33,8 @@ module "image_downscale" {
   runtime     = "python312"
   entry_point = "image_downscale"
   source_dir  = "${path.module}/../src/image_downscale"
+
+  depends_on = [google_project_service.required_apis]
 }
 
 provider "google" {
