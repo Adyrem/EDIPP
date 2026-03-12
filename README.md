@@ -1,6 +1,6 @@
-# Serverless Image Processing Pipeline ☁️🖼️
+# Serverless Image Processing Pipeline 
 
-**Status: Work in Progress (WIP) 🚧**
+**Status: Work in Progress (WIP) **
 
 Dieses Repository beinhaltet den Code und die Infrastruktur-Definitionen für unsere Transferarbeit im Modul "Cloud und Serverless". Wir sind eine vierköpfige Gruppe von Studenten und entwerfen in diesem Rahmen eine skalierbare, ereignisgesteuerte Architektur zur Bildverarbeitung.
 
@@ -26,7 +26,7 @@ Basierend auf unserer initialen Nutzwertanalyse haben wir uns für folgende Tech
 ## Repository Struktur
 * `/frontend`: Beinhaltet die statische Webseite für den Bild-Upload.
 * `/infrastructure`: Die OpenTofu-Konfigurationsdateien (`.tf`) zur Automatisierung der Google Cloud Umgebung.
-* `/src/image-processing`: Der Quellcode der einzelnen Serverless-Funktionen.
+* `/src`: Der Quellcode der einzelnen Serverless-Funktionen.
 
 ---
 *Hinweis: Da sich das Projekt aktuell noch im Aufbau befindet, werden detaillierte Anleitungen zum Deployment (OpenTofu) und zur lokalen Ausführung der Funktionen zu einem späteren Zeitpunkt hier ergänzt.*
